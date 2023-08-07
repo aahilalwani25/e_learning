@@ -1,5 +1,6 @@
 import 'package:e_learning_app/Views/Onboard%20Screen/bloc/onboard_bloc.dart';
 import 'package:e_learning_app/Views/Onboard%20Screen/onboard_screen.dart';
+import 'package:e_learning_app/Views/Signin%20Screen/bloc/signin_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -33,12 +34,14 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (create)=>OnboardBloc()),
+        BlocProvider(create: (create)=>SigninBloc()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
           useMaterial3: true,
         ),
         home: OnboardScreen(),

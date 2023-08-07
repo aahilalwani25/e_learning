@@ -1,13 +1,15 @@
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 part 'signin_event.dart';
 part 'signin_state.dart';
 
 class SigninBloc extends Bloc<SigninEvent, SigninState> {
-  SigninBloc() : super(SigninInitial()) {
-    on<SigninEvent>((event, emit) {
-      // TODO: implement event handler
+  SigninBloc() : super(SigninState()) {
+    on<EmailChangedEvent>((event, emit) {
+      emit(state.copyWith(email: event.email));
+    });
+
+    on<PasswordChangedEvent>((event, emit) {
+      emit(state.copyWith(email: event.password));
     });
   }
 }

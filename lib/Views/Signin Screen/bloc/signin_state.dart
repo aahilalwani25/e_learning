@@ -1,12 +1,13 @@
 part of 'signin_bloc.dart';
 
-abstract class SigninState {
-  String? username, password;
+class SigninState {
+  String email, password;
 
-  //SigninState({required this.username, required this.password});
-}
+  SigninState({this.email = "", this.password = ""});
 
-class SigninInitial extends SigninState {
+  SigninState copyWith({String? email, String? password}) {
 
-  //SigninInitial({required this.username, required this.password}):super(username: username, password: password);
+    //?? means "if null then return state defined in this class"
+    return SigninState(email: email?? this.email, password: password??this.password);
+  }
 }

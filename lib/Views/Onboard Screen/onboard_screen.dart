@@ -3,13 +3,13 @@ import 'package:e_learning_app/Views/Signin%20Screen/signin_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../Navigation Animation/tween_animation.dart';
 import 'bloc/onboard_bloc.dart';
 import 'onboard_screen_list.dart';
 
 class OnboardScreen extends StatelessWidget {
   OnboardScreen({super.key});
 
-  
   final pageController = PageController(initialPage: 0);
 
   @override
@@ -64,26 +64,8 @@ class OnboardScreen extends StatelessWidget {
                                 duration: Duration(seconds: 1),
                                 curve: Curves.ease);
                           } else {
-                            //navigate to new page
-                            Navigator.push(
-                                context,
-                                PageRouteBuilder(
-                                    transitionsBuilder: (context, animation,
-                                        secondaryAnimation, child) {
-                                      const begin = Offset(0.0, 1.0);
-                                      const end = Offset.zero;
-                                      final tween =
-                                          Tween(begin: begin, end: end);
-                                      final offsetAnimation =
-                                          animation.drive(tween);
-                                      return SlideTransition(
-                                        position: offsetAnimation,
-                                        child: child,
-                                      );
-                                    },
-                                    pageBuilder: (context, animation,
-                                            secondaryAnimation) =>
-                                        const SigninScreen()));
+                            //navigate to new page with tween animation
+                            navigateWithTweenAnimation(context, const SigninScreen());
                           }
                         },
                         child: Center(
