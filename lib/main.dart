@@ -15,7 +15,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
-);
+  );
 
   //set screen orientation
   SystemChrome.setPreferredOrientations([
@@ -39,14 +39,13 @@ class MyApp extends StatelessWidget {
     ScreenUtil.init(context);
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (create)=>OnboardBloc()),
-        BlocProvider(create: (create)=>SigninBloc()),
+        BlocProvider(create: (create) => OnboardBloc()),
+        BlocProvider(create: (create) => SigninBloc()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
-          
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
           useMaterial3: true,
         ),

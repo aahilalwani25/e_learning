@@ -25,7 +25,7 @@ class SignupScreen extends StatelessWidget {
                 ],
               ),
             ),
-      
+
             //container for text "Or use your  email account..."
             Container(
               margin: EdgeInsets.only(top: 5.h, bottom: 5.h),
@@ -47,16 +47,41 @@ class SignupScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     decorateTextFields(
-                        "Email", "abc@example.com", false, (value) {}),
+                        "Email", "abc@example.com", false, (value) {}, (value) {
+                      if (value == null) {
+                        return "Email required";
+                      }
+                      return null;
+                    }),
                     decorateTextFields(
-                        "Phone", "Enter your Phone Number", false, (value) {}),
+                        "Phone", "Enter your Phone Number", false, (value) {},
+                        (value) {
+                      if (value == null) {
+                        return "Phone required";
+                      }
+                      return null;
+                    }),
                     decorateTextFields(
-                        "Password", "Enter your Password", true, (value) {}),
-                    decorateTextFields("Confirm Password",
-                        "Enter your Confirm Password", true, (value) {}),
+                        "Password", "Enter your Password", true, (value) {},
+                        (value) {
+                      if (value == null) {
+                        return "Email required";
+                      }
+                      return null;
+                    }),
+                    decorateTextFields(
+                        "Confirm Password",
+                        "Enter your Confirm Password",
+                        true,
+                        (value) {}, (value) {
+                      if (value == null) {
+                        return "Email required";
+                      }
+                      return null;
+                    }),
                   ],
                 )),
-      
+
             //login button
             SizedBox(
               //margin: EdgeInsets.only(left: 20.w),

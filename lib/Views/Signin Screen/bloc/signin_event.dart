@@ -13,3 +13,7 @@ class PasswordChangedEvent extends SigninEvent {
 
   PasswordChangedEvent(this.password);
 }
+
+class PasswordVisibilityChanged extends SigninEvent{
+  
+}

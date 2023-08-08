@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget decorateTextFields(String fieldType, String? hintName,
-      bool obscureText, void Function(String value) onChanged) {
+      bool obscureText, void Function(String value) onChanged, String? Function(String? value)? onValidate) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -10,7 +10,8 @@ Widget decorateTextFields(String fieldType, String? hintName,
         SizedBox(
           width: 325.w,
           height: 50.h,
-          child: TextField(
+          child: TextFormField(
+            validator: onValidate,
             onChanged: onChanged,
             obscureText: obscureText,
             autocorrect: false,
