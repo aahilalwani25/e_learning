@@ -7,7 +7,7 @@ Widget decorateTextFields(String fieldType, String? hintName,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(fieldType),
-        Container(
+        SizedBox(
           width: 325.w,
           height: 50.h,
           child: TextField(
@@ -20,7 +20,7 @@ Widget decorateTextFields(String fieldType, String? hintName,
                   ? const Icon(Icons.email)
                   : fieldType=="Phone"
                   ? const Icon(Icons.phone)
-                  : Icon(Icons.lock),
+                  : const Icon(Icons.lock),
               fillColor: Colors.black.withOpacity(0.05),
               filled: true,
               focusColor: Colors.green,

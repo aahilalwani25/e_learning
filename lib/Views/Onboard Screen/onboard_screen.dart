@@ -44,7 +44,7 @@ class OnboardScreen extends StatelessWidget {
                         decorator: DotsDecorator(
                             color: Colors.black.withOpacity(0.4),
                             activeColor: Colors.blue,
-                            activeSize: Size(10, 10)),
+                            activeSize: const Size(10, 10)),
                         mainAxisAlignment: MainAxisAlignment.center,
                       )),
                   Positioned(
@@ -61,7 +61,7 @@ class OnboardScreen extends StatelessWidget {
                           if (state.index < 2) {
                             //next pageView
                             pageController.animateToPage(state.index + 1,
-                                duration: Duration(seconds: 1),
+                                duration: const Duration(seconds: 1),
                                 curve: Curves.ease);
                           } else {
                             //navigate to new page with tween animation
@@ -86,16 +86,16 @@ class OnboardScreen extends StatelessWidget {
     );
   }
 
-  Widget page(int index, BuildContext context, List<dynamic> onboard_data) {
+  Widget page(int index, BuildContext context, List<dynamic> onboardData) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image(
-          image: AssetImage(onboard_data[index]['image_path']),
+          image: AssetImage(onboardData[index]['image_path']),
         ),
         Container(
           child: Text(
-            onboard_data[index]['title'],
+            onboardData[index]['title'],
             style: TextStyle(color: Colors.black, fontSize: 24.sp),
           ),
         ),
@@ -103,7 +103,7 @@ class OnboardScreen extends StatelessWidget {
           width: 300.w,
           padding: EdgeInsets.only(top: 10.h),
           child: Text(
-            onboard_data[index]['subtitle'],
+            onboardData[index]['subtitle'],
             style: TextStyle(
                 color: Colors.black.withOpacity(0.5), fontSize: 14.sp),
           ),

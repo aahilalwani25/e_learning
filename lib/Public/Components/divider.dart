@@ -6,7 +6,7 @@ Widget divider() {
         Container(
       margin: EdgeInsets.only(top: 50.h),
       child: PreferredSize(
-        preferredSize: Size.fromHeight(1),
+        preferredSize: const Size.fromHeight(1),
         child: Container(
           color: Colors.grey,
           height: 1,

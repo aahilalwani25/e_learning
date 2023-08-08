@@ -58,7 +58,7 @@ class SignupScreen extends StatelessWidget {
                 )),
       
             //login button
-            Container(
+            SizedBox(
               //margin: EdgeInsets.only(left: 20.w),
               width: 325.w,
               height: 50.h,

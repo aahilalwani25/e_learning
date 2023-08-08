@@ -22,7 +22,7 @@ class SigninScreen extends StatelessWidget {
         body: WillPopScope(
           onWillPop: () async {
             //disable back button
-            return await false;
+            return false;
           },
           child: SingleChildScrollView(
             child: BlocBuilder<SigninBloc, SigninState>(
