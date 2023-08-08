@@ -4,11 +4,13 @@ class SigninState {
   String email, password;
   bool visibility;
 
-  SigninState({this.email = "", this.password = "", this.visibility=true});
+  SigninState({this.email = "", this.password = "", this.visibility = true});
 
-  SigninState copyWith({String? email, String? password}) {
-
+  SigninState copyWith({String? email, String? password, bool? visibility}) {
     //?? means "if null then return state defined in this class"
-    return SigninState(email: email?? this.email, password: password??this.password);
+    return SigninState(
+        email: email ?? this.email,
+        password: password ?? this.password,
+        visibility: visibility ?? this.visibility);
   }
 }

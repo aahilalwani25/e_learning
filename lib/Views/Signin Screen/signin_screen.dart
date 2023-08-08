@@ -72,25 +72,17 @@ class SigninScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               decorateTextFields(
+                                context,
                                   "Email", "abc@example.com", false, (value) {
                                 BlocProvider.of<SigninBloc>(context)
                                     .add(EmailChangedEvent(value));
-                              }, (value) {
-                                if (value == null) {
-                                  return "Email required";
-                                }
-                                return null;
                               }),
                               decorateTextFields(
+                                context,
                                   "Password", "Enter your Password", true,
                                   (value) {
                                 BlocProvider.of<SigninBloc>(context)
                                     .add(PasswordChangedEvent(value));
-                              }, (value) {
-                                if (value == null) {
-                                  return "Password required";
-                                }
-                                return null;
                               }),
                               Row(
                                 mainAxisAlignment:

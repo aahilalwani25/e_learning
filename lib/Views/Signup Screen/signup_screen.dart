@@ -1,5 +1,4 @@
 import 'package:e_learning_app/Public/Components/app_bar.dart';
-import 'package:e_learning_app/Public/Components/social_icons.dart';
 import 'package:e_learning_app/Public/Components/text_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -14,21 +13,21 @@ class SignupScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  socialIcons('google'),
-                  socialIcons('apple'),
-                  socialIcons('facebook')
-                ],
-              ),
-            ),
+            // Container(
+            //   margin: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //     children: [
+            //       socialIcons('google'),
+            //       socialIcons('apple'),
+            //       socialIcons('facebook')
+            //     ],
+            //   ),
+            // ),
 
             //container for text "Or use your  email account..."
             Container(
-              margin: EdgeInsets.only(top: 5.h, bottom: 5.h),
+              margin: EdgeInsets.only(top: 30.h, bottom: 5.h),
               child: Center(
                 child: Text(
                   'Or use your email account to sign up',
@@ -47,38 +46,29 @@ class SignupScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     decorateTextFields(
-                        "Email", "abc@example.com", false, (value) {}, (value) {
-                      if (value == null) {
-                        return "Email required";
-                      }
-                      return null;
-                    }),
-                    decorateTextFields(
-                        "Phone", "Enter your Phone Number", false, (value) {},
-                        (value) {
-                      if (value == null) {
-                        return "Phone required";
-                      }
-                      return null;
-                    }),
-                    decorateTextFields(
+                        context,"Email", "abc@example.com", false, (value) {}),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        SizedBox(
+                          width: 80.w,
+                          child: decorateTextFields(context,"Code", "+92", false, (value) { })),
+                        SizedBox(
+                          width: 220.w,
+                          child: decorateTextFields(context,
+                              "Phone", "Enter your Phone Number", false, (value) {},
+                              ),
+                        ),
+                      ],
+                    ),
+                    decorateTextFields( context,
                         "Password", "Enter your Password", true, (value) {},
-                        (value) {
-                      if (value == null) {
-                        return "Email required";
-                      }
-                      return null;
-                    }),
-                    decorateTextFields(
+                        ),
+                    decorateTextFields(context,
                         "Confirm Password",
                         "Enter your Confirm Password",
                         true,
-                        (value) {}, (value) {
-                      if (value == null) {
-                        return "Email required";
-                      }
-                      return null;
-                    }),
+                        (value) {}),
                   ],
                 )),
 

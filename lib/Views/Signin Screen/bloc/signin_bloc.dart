@@ -11,5 +11,9 @@ class SigninBloc extends Bloc<SigninEvent, SigninState> {
     on<PasswordChangedEvent>((event, emit) {
       emit(state.copyWith(password: event.password));
     });
+
+    on<PasswordVisibilityChangedEvent>((event, emit) {
+      emit(state.copyWith(visibility: event.visibility));
+    });
   }
 }

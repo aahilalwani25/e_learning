@@ -45,14 +45,10 @@ class SigninController {
     } on FirebaseAuthException catch (e) {
       // TODO
 
-      if (e.code == 'user-not-found') {
-        error = ("User not found on that email");
+      if (e.code == 'user-not-found' || e.code == 'wrong-password') {
+        error = ("Either username or password is wrong");
       }
-
-      if (e.code == 'wrong-password') {
-        error = ('Wrong user password');
-      }
-
+      
       if (e.code == 'invalid-email') {
         error = 'Invalid Email';
       }

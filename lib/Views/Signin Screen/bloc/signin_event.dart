@@ -14,6 +14,8 @@ class PasswordChangedEvent extends SigninEvent {
   PasswordChangedEvent(this.password);
 }
 
-class PasswordVisibilityChanged extends SigninEvent{
-  
+class PasswordVisibilityChangedEvent extends SigninEvent {
+  bool visibility;
+
+  PasswordVisibilityChangedEvent(this.visibility);
 }
