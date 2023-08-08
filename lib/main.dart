@@ -6,10 +6,16 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
+
 void main() async {
   //from flutter_screenutil package
   await ScreenUtil.ensureScreenSize();
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+);
 
   //set screen orientation
   SystemChrome.setPreferredOrientations([
